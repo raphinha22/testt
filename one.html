@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Biryani:wght@900&display=swap');
+</style>
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Biryani', sans-serif;
+    }
+    video{
+        width: 100%;
+        height: 100vh;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 0; left: 0;
+        z-index: 10000;
+    }
+    .container.fade-out{
+        top: 110%;
+        opacity: 0;
+    }
+    .pop-up{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+    .pop-up .img{
+        width: 362px;
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGfkvKGmdBaD6acgLD7bMykRFgN15zfggWdQfuoFk_3qLlkpj-ipQTdJFW0-YwZptIhI64e3z2pyojUSy16mIh4W6jCV5oKVk0OXx_sqf5SVfS0KbnLlmZaDlixG5dyAJz2K7zWcGsAKCCrCoD0yD-rqgO9UOocAO23hyk9jRkOcoPg2k_DiedjqaKZAG4/w351-h748/photo_2023-11-22_21-35-10.jpg);
+        z-index: -2;
+        background-size: cover;
+    }
+    .btns{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    .box{
+        width: 300px;
+        height: 200px;
+        background: rgb(243, 231, 216);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* gap: 70px 0; */
+        border-radius: 10px;
+        border: #fff 20px solid;
+    }
+    h1{
+        color: #000;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        top: 40px;
+    }
+    p{
+        color: #000;
+        font-size: 20px;
+        margin-top: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    .btn button{
+        padding: 5px 40px;
+        background: rgb(76, 234, 94);
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        font-weight: bold;
+        position: relative;
+        top: 30px;
+        font-size: 30px;
+        border: #fff 10px solid;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <section>
+        <div class="pop-up">
+            <div class="img"></div>
+        </div>
+
+        <div class="btns">
+            <div class="box">
+                <div class="txt">
+                    <h1>Sorry</h1>
+                </div>
+                <div class="p">
+                    <p>This reward cannot be claimed</p>
+                </div>
+                
+                <div class="btn"><button>click</button></div> 
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <video autoplay muted src="video_2023-11-22_20-47-42.mp4"></video>
+    </div>
+
+    <script>
+        function loadingscreen(){
+        document.querySelector(".container").classList.add("fade-out");
+        }
+
+        function fadeout(){
+        setInterval(loadingscreen, 11000);
+        }
+        window.onload = fadeout;
+
+    </script>
+</body>
+</html>
